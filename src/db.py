@@ -14,3 +14,15 @@ users_db = _js_db.table("user")
 
 
 users_db.upsert(asdict(User("test", "1234")), cond=Query()["username"] == "test")
+
+
+# {
+#   "object_id": 65656,
+#   "data": [
+#     {
+#       "key": "key1",
+#       "val": "val1",
+#       "valType": "str"
+#     }
+#   ]
+# }

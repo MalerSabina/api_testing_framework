@@ -9,9 +9,14 @@ from src.definitions import ApiError, BadRequestError
 from src.resources import PolyDataResource, PolyDataResourceList
 
 app = Sanic("Polyrize Interview Server")
-api = Api(app)
-initialize(app, authenticate=authenticate, url_prefix="/api/auth")
 
+headers = {"Content-Type": "application/json",
+           "Authorization": "Bearer ververylongstringwithnumbersandstuff",
+           "Accept": "application/json"}
+
+
+initialize(app, authenticate=authenticate, url_prefix="/api/auth", headers=headers)
+api = Api(app)
 
 def build_error_response(message, status_code, error_code, **kwargs):
     return json({"error": error_code, "message": message, **kwargs}, status=status_code)

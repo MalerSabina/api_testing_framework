@@ -22,3 +22,5 @@ async def authenticate(request, *args, **kwargs):
         raise exceptions.AuthenticationFailed("Password is incorrect.")
 
     return user
+
+
